@@ -1,17 +1,8 @@
 import asyncio
 from agents.random_agent import RandomBot
-from poke_env.ps_client import ShowdownServerConfiguration
-
-
 async def main():
-    player1 = RandomBot(
-        battle_format="gen9randombattle",
-        server_configuration=ShowdownServerConfiguration,
-    )
-    player2 = RandomBot(
-        battle_format="gen9randombattle",
-        server_configuration=ShowdownServerConfiguration,
-    )
+    player1 = RandomBot()
+    player2 = RandomBot()
 
     await player1.battle_against(player2, n_battles=5)
 

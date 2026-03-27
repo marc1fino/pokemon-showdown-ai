@@ -1,1 +1,1 @@
-# Pokemon-Showdown-AI
+# Pokemon Showdown AI
