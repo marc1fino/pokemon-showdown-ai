@@ -26,7 +26,7 @@ The project is built around Generation 9 Random Battles (`gen9randombattle`) and
 
 ## Features
 
-- Five ready-to-use bots with progressively more sophisticated decision-making
+- Six ready-to-use bots, including the educational MiniRLBot
 - Local bot-versus-bot battles on a private Pokémon Showdown server
 - Round-robin cross-evaluation with tabulated results
 - Direct battles between any two selected agents
@@ -35,7 +35,7 @@ The project is built around Generation 9 Random Battles (`gen9randombattle`) and
 - Matchup, damage, speed, status, boosts, abilities, hazards, and switching analysis
 - Intelligent use of Terastallization and compatibility with Mega Evolution, Z-Moves, and Dynamax
 - Team-role and battle-phase awareness in the competitive agent
-- Minimal and advanced PPO reinforcement-learning environments
+- Minimal PPO reinforcement-learning agent and an unfinished advanced RL prototype
 - Training, evaluation, batch testing, debug logging, and log-analysis utilities
 - Pretrained and smoke-test model files included under `models/`
 
@@ -77,15 +77,19 @@ An educational PPO agent with a compact 12-value observation vector and four mov
 
 Default model: `models/mini_move_rl_agent.zip`
 
+Available as **option 6** in `python src/main.py`, for both local battles and public ladder play. The default model is included, so retraining is optional. In local table mode, MiniRLBot also participates in the round-robin evaluation.
+
 ### AdvancedRLBot
+
+**Unfinished — development is paused and will resume in the future.** The prototype and its training/evaluation scripts are included, but it is not available in the interactive menu. Full training and validation remain pending.
 
 A larger PPO agent that combines reinforcement learning with the project's competitive evaluation layer. It uses a 121-value observation vector and ten actions: four move slots plus six possible team slots.
 
 The observation includes battle context, team survival, battle phase, matchup and threat scores, expected damage, move roles, accuracy, priority, status, speed advantage, switch safety, and entry-hazard penalties. Special mechanics are delegated to the same tactical selector used by the heuristic agents.
 
-Default model: `models/advanced_rl_agent.zip`
+Expected default model: `models/advanced_rl_agent.zip` (not included). Only the preliminary `models/advanced_rl_agent_smoke.zip` is available.
 
-> **Note:** The interactive `src/main.py` menu currently exposes RandomBot, MaxDamageBot, SimpleHeuristicsBot, SmartBot, and CompetitiveBot. The RL agents are operated through their dedicated training/evaluation scripts or imported programmatically.
+> **Note:** The interactive `src/main.py` menu exposes RandomBot, MaxDamageBot, SimpleHeuristicsBot, SmartBot, CompetitiveBot, and MiniRLBot. AdvancedRLBot remains an unfinished prototype for future work.
 
 ## Requirements
 
@@ -187,7 +191,7 @@ Are you playing in local server (1) or ladder (2):
 
 ### Local mode
 
-Local mode creates all five standard agents. Enter the number of battles and choose one of two result modes:
+Local mode creates all six available agents, including MiniRLBot. Enter the number of battles and choose one of two result modes:
 
 - **Table:** runs a round-robin cross-evaluation between every bot
 - **Print:** lets you select two different bots and prints their victory counts
@@ -228,6 +232,8 @@ python tools/evaluate_rl_agent.py --model models/my_mini_agent.zip --battles 100
 
 ### Train the advanced agent
 
+These commands are provided as a reference for future development of the unfinished prototype. They do not indicate a completed or validated agent.
+
 ```bash
 python tools/train_advanced_rl_agent.py --timesteps 100000 --opponent max
 ```
@@ -239,6 +245,8 @@ python tools/train_advanced_rl_agent.py --input models/advanced_rl_agent.zip --t
 ```
 
 ### Evaluate the advanced agent
+
+Requires a trained model at the expected path, or a model explicitly supplied with `--model`. The default advanced model is not included.
 
 ```bash
 python tools/evaluate_advanced_rl_agent.py --battles 50 --opponents random max simple competitive
@@ -333,7 +341,7 @@ Then activate the environment again.
 
 ## Roadmap
 
-- Add the RL agents to the interactive launcher
+- Resume and complete AdvancedRLBot training and validation, then add it to the interactive launcher
 - Add automated tests and continuous integration
 - Track benchmark results across agents and model versions
 - Add configurable formats and server endpoints

@@ -7,6 +7,7 @@ from tabulate import tabulate
 from agents.competitive_agent import create_competitive_bot
 from agents.maxdamage_agent import create_max_damage_bot
 from agents.random_agent import create_random_bot
+from agents.rl_agent import create_mini_rl_bot
 from agents.smart_agent import create_smart_bot
 from agents.simpleheurstics_agent import create_simple_heuristics_bot
 
@@ -21,6 +22,7 @@ PLAYER_FACTORIES = {
     3: ("SmartBot", create_smart_bot),
     4: ("SimpleHeuristicsBot", create_simple_heuristics_bot),
     5: ("CompetitiveBot", create_competitive_bot),
+    6: ("MiniRLBot", create_mini_rl_bot),
 }
 
 
