@@ -12,8 +12,6 @@ The project is built around Generation 9 Random Battles (`gen9randombattle`) and
   <img alt="NumPy" width="50" height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/numpy/numpy-original.svg" />&nbsp;&nbsp;
   <img alt="Pandas" width="50" height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg" />&nbsp;&nbsp;
   <img alt="Matplotlib" width="50" height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/matplotlib/matplotlib-original.svg" />&nbsp;&nbsp;
-  <img alt="Node.js" width="50" height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" />&nbsp;&nbsp;
-  <img alt="TypeScript" width="50" height="50" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" />
 </p>
 
 ![poke-env](https://img.shields.io/badge/poke--env-0.12.1-3B4CCA?style=flat-square)
